@@ -12,10 +12,10 @@ export class ColorComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  changeColor(input) {
-    console.log("inpuColor: ", input.value);
-    this.color = input.value;
-    input.value = "";
-  }
+  // changeColor(input) {
+  //   console.log("inpuColor: ", input.value);
+  //   this.color = input.value;
+  //   input.value = "";
+  // }
 
 }

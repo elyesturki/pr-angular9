@@ -2,4 +2,9 @@
   {{color}}
 </div>
 
-<input #inpuColor (change)="changeColor(inpuColor)" type="text" class="form-control">
+<input [(ngModel)]="color"
+      type="text"
+      class="form-control"
+>
+
+le contenu de la properiété color est {{color}}
