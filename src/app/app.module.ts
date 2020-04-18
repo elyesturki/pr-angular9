@@ -7,6 +7,7 @@ import { ChildBComponent } from './child-b/child-b.component';
 import { GrandChildComponent } from './grand-child/grand-child.component';
 import { ColorComponent } from './color/color.component';
 import { FormsModule } from '@angular/forms';
+import { FilsComponent } from './fils/fils.component';
 
 @NgModule({
   declarations: [
@@ -14,7 +15,8 @@ import { FormsModule } from '@angular/forms';
     ChildAComponent,
     ChildBComponent,
     GrandChildComponent,
-    ColorComponent
+    ColorComponent,
+    FilsComponent
   ],
   imports: [
     BrowserModule,
