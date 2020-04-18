@@ -8,6 +8,12 @@ import { Component, OnInit } from '@angular/core';
 export class ColorComponent implements OnInit {
   color= "red";
   color2="green";
+
+  /**data from fils */
+  processReq (message: any) {
+    console.log(message);
+  }
+
   constructor() { }
 
   ngOnInit(): void {
