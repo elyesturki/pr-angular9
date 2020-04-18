@@ -7,4 +7,11 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'pr-angular9';
+
+  bgColor = 'yellow';
+  show = false
+
+  changeStatus() {
+    this.show = !this.show;
+  }
 }
