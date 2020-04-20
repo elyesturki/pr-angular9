@@ -15,5 +15,15 @@ class works!</p>
 <div appHighlight>
   Bonjour je teste une directive
 </div>
+<br>#####################################################<br>
+<input *ngIf="show" type="text" class="form-control" appRainbow>
+<button class="btn-primary" (click)="show = !show">Show</button>
 <br><br>
-<input type="text" class="form-control" appRainbow>
+<ol class="list-group">
+  <li class="list-group-item" *ngFor="let team of teams; let index = index">
+   {{index+1}}- {{team}}
+  </li>
+</ol>
+
+
+

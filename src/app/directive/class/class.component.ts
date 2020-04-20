@@ -11,6 +11,10 @@ export class ClassComponent implements OnInit {
   barca= false;
   milan=false
 
+  show = false;
+
+  teams = ['est', 'milan', 'barca', 'juve']
+
   constructor() { }
 
   ngOnInit(): void {
