@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { Personne } from 'src/app/Model/Personne';
 
 @Component({
   selector: 'app-item-cv',
@@ -7,9 +8,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ItemCvComponent implements OnInit {
 
+  @Input() personne : Personne;
   constructor() { }
 
   ngOnInit(): void {
+    console.log("personne item: ",this.personne)
   }
 
 }
