@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { Personne } from 'src/app/Model/Personne';
 
 @Component({
@@ -9,6 +9,7 @@ import { Personne } from 'src/app/Model/Personne';
 export class ListeCvComponent implements OnInit {
 
   @Input() personnes: Personne[];
+  @Output() selectedPersonneEmitToCV = new EventEmitter();
   constructor() { }
 
   ngOnInit(): void {
@@ -16,7 +17,9 @@ export class ListeCvComponent implements OnInit {
   }
 
   selectedPersonne(selectedPersonne) {
-    console.log("selectedPersonne: ",selectedPersonne)
+    this.selectedPersonneEmitToCV.emit(
+      selectedPersonne
+    )
   }
 
 }

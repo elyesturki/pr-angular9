@@ -16,6 +16,8 @@ export class CvComponent implements OnInit {
   job: string;
   personnes: Personne [];
 
+  selectedPersonne: Personne;
+
   constructor() { }
 
   ngOnInit(): void {
@@ -24,6 +26,11 @@ export class CvComponent implements OnInit {
      new Personne (this.id= 2,this.name='Ronaldo',this.firstname='Cristiano',this.age= 35,this.path='rotating_card_profile2.png',this.cin=2,this.job='Footballeur'),
     ];
     console.log(this.personnes)
+  }
+
+  selectedPersonneFromList(selectedPersonneFromList) {
+    this.selectedPersonne = selectedPersonneFromList;
+    console.log("selectedPersonneFromList: ", this.selectedPersonne)
   }
 
 }
