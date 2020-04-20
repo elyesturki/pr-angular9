@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { Personne } from 'src/app/Model/Personne';
 
 @Component({
@@ -9,10 +9,18 @@ import { Personne } from 'src/app/Model/Personne';
 export class ItemCvComponent implements OnInit {
 
   @Input() personne : Personne;
+  @Output() selectedPersonneEmit = new EventEmitter()
   constructor() { }
 
   ngOnInit(): void {
     console.log("personne item: ",this.personne)
+  }
+
+  selectPersonne() {
+    // emmetre un evenement et injecter la personne
+    this.selectedPersonneEmit.emit(
+      this.personne
+    )
   }
 
 }

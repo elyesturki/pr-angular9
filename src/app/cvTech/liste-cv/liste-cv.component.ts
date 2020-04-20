@@ -15,4 +15,8 @@ export class ListeCvComponent implements OnInit {
     console.log("personnes list: ",this.personnes)
   }
 
+  selectedPersonne(selectedPersonne) {
+    console.log("selectedPersonne: ",selectedPersonne)
+  }
+
 }
