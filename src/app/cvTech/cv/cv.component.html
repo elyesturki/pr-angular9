@@ -3,6 +3,6 @@
     <app-liste-cv (selectedPersonneEmitToCV)="selectedPersonneFromList($event)" [personnes]="personnes"></app-liste-cv>
   </div>
   <div class="col-md-6 col-sm-9">
-    <app-detail-cv [personne]="selectedPersonne"></app-detail-cv>
+    <app-detail-cv *ngIf="selectedPersonne" [personne]="selectedPersonne"></app-detail-cv>
   </div>
 </div>
