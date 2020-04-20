@@ -28,9 +28,8 @@ export class CvComponent implements OnInit {
     console.log(this.personnes)
   }
 
-  selectedPersonneFromList(selectedPersonneFromList) {
-    this.selectedPersonne = selectedPersonneFromList;
-    console.log("selectedPersonneFromList: ", this.selectedPersonne)
+  selectedPersonneFromList(personneFromList) {
+    this.selectedPersonne = personneFromList;
   }
 
 }
