@@ -1,6 +1,7 @@
 <li class="list-group-item" (click)="selectPersonne()">
-  <img src="assets/images/{{personne.path}}"
+  <img src="assets/images/{{personne.path | defaultImage}}"
   alt="{{personne.firstname}}"
   >
   {{personne.name}} {{personne.firstname}}
+  <!-- {{personne | json}} -->
 </li>
