@@ -1,90 +1,98 @@
 <div class="container col-sm-12">
   <h1>Inscription user</h1>
   <hr/>
-  <form class="needs-validation my-form" novalidate>
+  <form class="needs-validation my-form" [formGroup]="registerForm" (ngSubmit)="onSubmit()" novalidate>
       <div class="form-row">
-          <!-- <div class="col-md-2 mb-3">
+          <div class="col-md-2 mb-3">
             <label>Title</label>
-            <select class="form-control">
+            <select formControlName="title" id="title"class="form-control">
                 <option value=""></option>
                 <option value="Mr">Mr</option>
                 <option value="Mme">Mme</option>
             </select>
-            <div class="valid-feedback">Ok !</div>
-            <div class="invalid-feedback">Valeur incorrecte</div>
-          </div> -->
+            <div class="valid-feedback" [ngClass]="fc.title? 'd-block' : ''" *ngIf="submitted && fc.title.valid">{{message.success}}</div>
+            <div class="invalid-feedback" [ngClass]="fc.title? 'd-block' : ''" *ngIf="submitted && fc.title.invalid">{{message.error}}</div>
+          </div>
           <div class="col-md-5 mb-3">
               <label for="nom">Nom de famille</label>
-              <input type="text" class="form-control" id="nom" placeholder="Nom" required>
-              <div class="valid-feedback">Ok !</div>
-              <div class="invalid-feedback">Valeur incorrecte</div>
+              <input formControlName="lastName" type="text" class="form-control" id="nom" placeholder="Nom" required>
+              <div class="valid-feedback" [ngClass]="fc.lastName? 'd-block' : ''" *ngIf="submitted && fc.lastName.valid">{{message.success}}</div>
+              <div class="invalid-feedback" [ngClass]="fc.lastName? 'd-block' : ''" *ngIf="submitted && fc.lastName.invalid">{{message.error}}</div>
           </div>
           <div class="col-md-5 mb-3">
             <label for="prenom">Prénom</label>
-            <input type="text" class="form-control" id="prenom" placeholder="Prenom" required>
-            <div class="valid-feedback">Ok !</div>
-            <div class="invalid-feedback">Valeur incorrecte</div>
+            <input formControlName="firstName" type="text" class="form-control" id="prenom" placeholder="Prenom" required>
+            <div class="valid-feedback" [ngClass]="fc.firstName? 'd-block' : ''" *ngIf="submitted && fc.firstName.valid">{{message.success}}</div>
+            <div class="invalid-feedback" [ngClass]="fc.firstName? 'd-block' : ''" *ngIf="submitted && fc.firstName.invalid">{{message.error}}</div>
           </div>
-          <!-- <div class="col-md-6 mb-3">
+          <div class="col-md-6 mb-3">
             <label for="pseudo">Pseudo</label>
-            <input type="text" class="form-control" id="pseudo" placeholder="Pseudo" required>
-            <div class="valid-feedback">Ok !</div>
-            <div class="invalid-feedback">Valeur incorrecte</div>
-          </div> -->
+            <input formControlName="pseudo" type="text" class="form-control" id="pseudo" placeholder="Pseudo" required>
+            <div class="valid-feedback" [ngClass]="fc.pseudo? 'd-block' : ''" *ngIf="submitted && fc.pseudo.valid">{{message.success}}</div>
+            <div class="invalid-feedback" [ngClass]="fc.pseudo? 'd-block' : ''" *ngIf="submitted && fc.pseudo.invalid">{{message.error}}</div>
+          </div>
       </div>
-      <!-- <div class="form-row">
+      <div class="form-row">
         <div class="col-md-6 mb-3">
             <label for="email">E-mail</label>
-            <input type="text" class="form-control" id="email" placeholder="Email" required>
-            <div class="valid-feedback">Ok !</div>
-            <div class="invalid-feedback">Valeur incorrecte</div>
+            <input formControlName="email" type="text" class="form-control" id="email" placeholder="Email" required>
+            <div class="valid-feedback" [ngClass]="fc.email? 'd-block' : ''" *ngIf="submitted && fc.email.valid">{{message.success}}</div>
+            <div class="invalid-feedback" [ngClass]="fc.email? 'd-block' : ''" *ngIf="submitted && fc.email.invalid">{{message.error}}</div>
         </div>
         <div class="col-md-3 mb-3">
           <label for="password">Mot de passe</label>
-          <input type="text" class="form-control" id="password" placeholder="Password" required>
-          <div class="valid-feedback">Ok !</div>
-          <div class="invalid-feedback">Valeur incorrecte</div>
+          <input formControlName="password" type="password" class="form-control" id="password" placeholder="Password" required>
+          <div class="valid-feedback" [ngClass]="fc.password? 'd-block' : ''" *ngIf="submitted && fc.password.valid">{{message.success}}</div>
+          <div class="invalid-feedback" [ngClass]="fc.password? 'd-block' : ''" *ngIf="submitted && fc.password.invalid">{{message.error}}</div>
         </div>
         <div class="col-md-3 mb-3">
           <label for="confirmPassword">Valider mot de passe</label>
-          <input type="text" class="form-control" id="confirmPassword" placeholder="Confirmer pwd" required>
-          <div class="valid-feedback">Ok !</div>
-          <div class="invalid-feedback">Valeur incorrecte</div>
+          <input formControlName="confirmPassword" type="password" class="form-control" id="confirmPassword" placeholder="Confirmer pwd" required>
+          <div class="valid-feedback" [ngClass]="fc.confirmPassword? 'd-block' : ''" *ngIf="submitted && fc.confirmPassword.valid">{{message.success}}</div>
+          <div class="invalid-feedback" [ngClass]="fc.confirmPassword? 'd-block' : ''" *ngIf="submitted && fc.confirmPassword.invalid">{{message.error}}</div>
         </div>
       </div>
       <div class="form-row">
           <div class="col-md-6 mb-3">
               <label for="rue">Rue</label>
-              <input type="text" class="form-control" id="rue" placeholder="Rue" required>
-              <div class="valid-feedback">Ok !</div>
-              <div class="invalid-feedback">Valeur incorrecte</div>
+              <input formControlName="street" type="text" class="form-control" id="rue" placeholder="Rue" required>
+              <div class="valid-feedback" [ngClass]="fc.street? 'd-block' : ''" *ngIf="submitted && fc.street.valid">{{message.success}}</div>
+              <div class="invalid-feedback" [ngClass]="fc.street? 'd-block' : ''" *ngIf="submitted && fc.street.invalid">{{message.error}}</div>
           </div>
           <div class="col-md-3 mb-3">
             <label for="ville">Ville</label>
-            <input type="text" class="form-control" id="ville" placeholder="Ville" required>
-            <div class="valid-feedback">Ok !</div>
-            <div class="invalid-feedback">Valeur incorrecte</div>
+            <input formControlName="city" type="text" class="form-control" id="ville" placeholder="Ville" required>
+            <div class="valid-feedback" [ngClass]="fc.city? 'd-block' : ''" *ngIf="submitted && fc.city.valid">{{message.success}}</div>
+            <div class="invalid-feedback" [ngClass]="fc.city? 'd-block' : ''" *ngIf="submitted && fc.city.invalid">{{message.error}}</div>
           </div>
           <div class="col-md-3 mb-3">
               <label for="cp">Code postal</label>
-              <input type="text" class="form-control" id="cp" placeholder="Code postal" required>
-              <div class="valid-feedback">Ok !</div>
-              <div class="invalid-feedback">Valeur incorrecte</div>
+              <input formControlName="cp" type="text" class="form-control" id="cp" placeholder="Code postal" required>
+              <div class="valid-feedback" [ngClass]="fc.cp? 'd-block' : ''" *ngIf="submitted && fc.cp.valid">{{message.success}}</div>
+              <div class="invalid-feedback" [ngClass]="fc.cp? 'd-block' : ''" *ngIf="submitted && fc.cp.invalid">{{message.error}}</div>
           </div>
           <div class="col-md-4 mb-3">
             <label for="pays">Pays</label>
-            <input type="text" class="form-control" id="pays" placeholder="Pays" required>
-            <div class="valid-feedback">Ok !</div>
-            <div class="invalid-feedback">Valeur incorrecte</div>
+            <input formControlName="country" type="text" class="form-control" id="pays" placeholder="Pays" required>
+            <div class="valid-feedback" [ngClass]="fc.country? 'd-block' : ''" *ngIf="submitted && fc.country.valid">{{message.success}}</div>
+            <div class="invalid-feedback" [ngClass]="fc.country? 'd-block' : ''" *ngIf="submitted && fc.country.invalid">{{message.error}}</div>
           </div>
       </div>
       <div class="form-group">
           <div class="form-check">
-            <input class="form-check-input" type="checkbox" value="" id="cgu" required>
+            <input formControlName="acceptTerms" class="form-check-input" type="checkbox" value="" id="cgu" required>
             <label class="form-check-label" for="cgu">J'accepte les conditions générales d'utilisation et de vente</label>
-            <div class="invalid-feedback">Vous devez accepter les CGU pour continuer</div>
+            <div class="invalid-feedback" [ngClass]="fc.acceptTerms? 'd-block' : ''" *ngIf="submitted && fc.acceptTerms.invalid">Vous devez accepter les CGU pour continuer</div>
           </div>
-      </div> -->
-      <button class="btn btn-primary" type="submit">Envoyer</button>
+      </div>
+      <div class="text-center">
+        <button class="btn btn-primary m-1" type="submit">Envoyer</button>
+        <button class="btn btn-secondary" type="reset" (click)="onReset()">Annuler</button>
+      </div>
+
   </form>
+  <br>
+  <div class="alert alert-success" role="alert" *ngIf="false">
+    <h4 class="alert-heading">Message envoyé !</h4>
+  </div>
 </div>

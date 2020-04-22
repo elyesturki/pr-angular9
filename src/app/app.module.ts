@@ -6,7 +6,7 @@ import { ChildAComponent } from './child-a/child-a.component';
 import { ChildBComponent } from './child-b/child-b.component';
 import { GrandChildComponent } from './grand-child/grand-child.component';
 import { ColorComponent } from './color/color.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { FilsComponent } from './fils/fils.component';
 import { CvComponent } from './cvTech/cv/cv.component';
 import { ListeCvComponent } from './cvTech/liste-cv/liste-cv.component';
@@ -40,7 +40,8 @@ import { FormulaireComponent } from './form-validation/formulaire/formulaire.com
   ],
   imports: [
     BrowserModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
