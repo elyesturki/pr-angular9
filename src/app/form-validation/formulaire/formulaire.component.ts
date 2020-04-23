@@ -48,7 +48,8 @@ export class FormulaireComponent implements OnInit {
   onSubmit() {
     this.submitted = true;
     this.fc = this.registerForm.controls;
-    console.log('.errors: ', this.fc.password.errors, 'confirm: ', this.fc.confirmPassword.errors);
+    // console.log('.errors: ', this.fc.password.errors, 'confirm: ', this.fc.confirmPassword.errors);
+   // console.log("country: ",this.registerForm.controls.country);
 
     // stop here if form is invalid
     if (this.registerForm.invalid) {
@@ -59,12 +60,61 @@ export class FormulaireComponent implements OnInit {
     alert('SUCCESS!! :-)\n\n' + JSON.stringify(this.registerForm.value, null, 4));
 
     // reset form
-    this.onReset();
+    // this.onReset();
   }
 
   onReset() {
    this.submitted = false;
    this.registerForm.reset();
+  }
+
+  // Autocomplete search counrty
+  keyword = 'name';
+  data = [
+     {
+       id: 1,
+       name: 'France',
+       capital : 'Paris'
+     },
+     {
+       id: 2,
+       name: 'England'
+     }
+     ,
+     {
+       id: 3,
+       name: 'Germany'
+     }
+     ,
+     {
+       id: 4,
+       name: 'Russia'
+     }
+     ,
+     {
+       id: 5,
+       name: 'Espagne'
+     }
+     ,
+     {
+       id: 6,
+       name: 'Poland'
+     }
+     ,
+     {
+       id: 7,
+       name: 'Italie'
+     }
+  ];
+  selectEvent(item) {
+    // do something with selected item
+  };
+  onChangeSearch(val: string) {
+    // fetch remote data from here
+    // And reassign the 'data' which is binded to 'data' property.
+  }
+  onFocused(e){
+    // do something when input is focused
   }
 
   //encrypt & decrypt data

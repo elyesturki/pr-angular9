@@ -71,9 +71,42 @@
               <div class="valid-feedback" [ngClass]="fc.cp? 'd-block' : ''" *ngIf="submitted && fc.cp.valid">{{message.success}}</div>
               <div class="invalid-feedback" [ngClass]="fc.cp? 'd-block' : ''" *ngIf="submitted && fc.cp.invalid">{{message.error}}</div>
           </div>
-          <div class="col-md-4 mb-3">
-            <label for="pays">Pays</label>
-            <input formControlName="country" type="text" class="form-control" id="pays" placeholder="Pays" required>
+          <div class="col-md-6 mb-3">
+             <label for="pays">Pays</label>
+          <!--  <input formControlName="country" type="text" class="form-control" id="pays" placeholder="Pays" required> -->
+            <div class="ng-autocomplete">
+              <ng-autocomplete
+                [data]="data"
+                [searchKeyword]="keyword"
+                (selected)='selectEvent($event)'
+                (inputChanged)='onChangeSearch($event)'
+                (inputFocused)='onFocused($event)'
+                [itemTemplate]="itemTemplate"
+                [notFoundTemplate]="notFoundTemplate"
+                formControlName="country"
+                placeHolder="exp: France"
+                >
+              </ng-autocomplete>
+
+              <ng-template #itemTemplate let-item>
+                <a href="javascript:void(0)">
+                  <span [innerHTML]="item.name"></span>
+                  <!-- <span [innerHTML]="item.capital"></span> -->
+                  <!-- <div class="row">
+                    <div class="col-2">
+                        <img [src]="item.Poster" style="width:50px" />
+                    </div>
+                    <div class="col-10">
+                        <span [innerHTML]="item.Title"></span><i>({{item.Year}})</i>
+                    </div>
+                  </div> -->
+                </a>
+              </ng-template>
+
+              <ng-template #notFoundTemplate let-notFound>
+              <div [innerHTML]="notFound"></div>
+              </ng-template>
+            </div>
             <div class="valid-feedback" [ngClass]="fc.country? 'd-block' : ''" *ngIf="submitted && fc.country.valid">{{message.success}}</div>
             <div class="invalid-feedback" [ngClass]="fc.country? 'd-block' : ''" *ngIf="submitted && fc.country.invalid">{{message.error}}</div>
           </div>
