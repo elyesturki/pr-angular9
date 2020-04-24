@@ -1,9 +1,11 @@
 import { Component, OnInit } from '@angular/core';
+import { PremierService } from 'src/app/premier.service';
 
 @Component({
   selector: 'app-color',
   templateUrl: './color.component.html',
-  styleUrls: ['./color.component.css']
+  styleUrls: ['./color.component.css'],
+  providers: [PremierService]
 })
 export class ColorComponent implements OnInit {
   color= "red";
@@ -14,9 +16,13 @@ export class ColorComponent implements OnInit {
     console.log(message);
   }
 
-  constructor() { }
+  constructor( private premierService: PremierService) { }
 
   ngOnInit(): void {
+  }
+
+  loggerMesData() {
+    this.premierService.logger('test');
   }
 
   // changeColor(input) {

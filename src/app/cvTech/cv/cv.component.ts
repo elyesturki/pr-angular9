@@ -29,6 +29,7 @@ export class CvComponent implements OnInit {
     ];
     //console.log(this.personnes)
     this.premierService.logger(this.personnes);
+    this.premierService.addData('data from cv compnenent');
   }
 
   selectedPersonneFromList(personneFromList) {
