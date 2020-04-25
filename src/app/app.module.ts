@@ -19,6 +19,7 @@ import { RainbowDirective } from './directive/rainbow.directive';
 import { DefaultImagePipe } from './cvTech/default-image.pipe';
 import { FormulaireComponent } from './form-validation/formulaire/formulaire.component';
 import {AutocompleteLibModule} from 'angular-ng-autocomplete';
+import { EmbaucheComponent } from './cvTech/embauche/embauche.component';
 
 @NgModule({
   declarations: [
@@ -37,7 +38,8 @@ import {AutocompleteLibModule} from 'angular-ng-autocomplete';
     HighlightDirective,
     RainbowDirective,
     DefaultImagePipe,
-    FormulaireComponent
+    FormulaireComponent,
+    EmbaucheComponent
   ],
   imports: [
     BrowserModule,

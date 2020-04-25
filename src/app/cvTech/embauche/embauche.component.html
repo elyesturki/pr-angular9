@@ -1,0 +1,8 @@
+<div *ngIf="personnes">
+  <span *ngFor="let personne of personnes">
+    <img width="150px" height="150px" class="rounded-circle" src="assets/images/{{personne.path | defaultImage}}"
+    alt="{{personne.firstname}}"
+    >
+    {{personne.name}} {{personne.firstname}}
+  </span>
+</div>
