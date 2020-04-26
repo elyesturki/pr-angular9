@@ -23,6 +23,8 @@ import { EmbaucheComponent } from './cvTech/embauche/embauche.component';
 import { AppRoutingModule } from './app-routing.module';
 import { HeaderComponent } from './header/header.component';
 import { DetailComponent } from './cvTech/detail/detail.component';
+import { AddCvComponent } from './cvTeck/add-cv/add-cv.component';
+import { DeleteCvComponent } from './cvTeck/delete-cv/delete-cv.component';
 
 @NgModule({
   declarations: [
@@ -44,7 +46,9 @@ import { DetailComponent } from './cvTech/detail/detail.component';
     FormulaireComponent,
     EmbaucheComponent,
     HeaderComponent,
-    DetailComponent
+    DetailComponent,
+    AddCvComponent,
+    DeleteCvComponent
   ],
   imports: [
     BrowserModule,

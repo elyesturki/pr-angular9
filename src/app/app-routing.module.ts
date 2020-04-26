@@ -4,11 +4,17 @@ import { RouterModule, Routes } from '@angular/router';
 import { CvComponent } from './cvTech/cv/cv.component';
 import { ColorComponent } from './color/color.component';
 import { DetailComponent } from './cvTech/detail/detail.component';
+import { DeleteCvComponent } from './cvTeck/delete-cv/delete-cv.component';
+import { AddCvComponent } from './cvTeck/add-cv/add-cv.component';
 
 const APP_ROUTING: Routes = [
+  { path: 'cv', children : [
+    { path: '', component: CvComponent},
+    { path: 'delete/:id', component: DeleteCvComponent },
+    { path: 'add', component: AddCvComponent },
+    { path: ':id', component: DetailComponent },
+  ]},
   { path: '', redirectTo: 'cv', pathMatch: 'full'},
-  { path: 'cv', component: CvComponent },
-  { path: 'cv/:id', component: DetailComponent },
   { path: 'color/:default', component: ColorComponent }
 ];
 
