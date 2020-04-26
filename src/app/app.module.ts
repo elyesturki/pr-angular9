@@ -20,6 +20,7 @@ import { DefaultImagePipe } from './cvTech/default-image.pipe';
 import { FormulaireComponent } from './form-validation/formulaire/formulaire.component';
 import {AutocompleteLibModule} from 'angular-ng-autocomplete';
 import { EmbaucheComponent } from './cvTech/embauche/embauche.component';
+import { AppRoutingModule } from './app-routing.module';
 
 @NgModule({
   declarations: [
@@ -45,7 +46,8 @@ import { EmbaucheComponent } from './cvTech/embauche/embauche.component';
     BrowserModule,
     FormsModule,
     ReactiveFormsModule,
-    AutocompleteLibModule
+    AutocompleteLibModule,
+    AppRoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent]
