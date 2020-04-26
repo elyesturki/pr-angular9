@@ -8,8 +8,7 @@ import { DeleteCvComponent } from './cvTeck/delete-cv/delete-cv.component';
 import { AddCvComponent } from './cvTeck/add-cv/add-cv.component';
 
 const APP_ROUTING: Routes = [
-  { path: 'cv', children : [
-    { path: '', component: CvComponent},
+  { path: 'cv', component: CvComponent, children : [
     { path: 'delete/:id', component: DeleteCvComponent },
     { path: 'add', component: AddCvComponent },
     { path: ':id', component: DetailComponent },
