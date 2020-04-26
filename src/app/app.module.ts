@@ -25,6 +25,7 @@ import { HeaderComponent } from './header/header.component';
 import { DetailComponent } from './cvTech/detail/detail.component';
 import { AddCvComponent } from './cvTeck/add-cv/add-cv.component';
 import { DeleteCvComponent } from './cvTeck/delete-cv/delete-cv.component';
+import { ErrorComponent } from './error/error.component';
 
 @NgModule({
   declarations: [
@@ -48,7 +49,8 @@ import { DeleteCvComponent } from './cvTeck/delete-cv/delete-cv.component';
     HeaderComponent,
     DetailComponent,
     AddCvComponent,
-    DeleteCvComponent
+    DeleteCvComponent,
+    ErrorComponent
   ],
   imports: [
     BrowserModule,

@@ -6,6 +6,7 @@ import { ColorComponent } from './color/color.component';
 import { DetailComponent } from './cvTech/detail/detail.component';
 import { DeleteCvComponent } from './cvTeck/delete-cv/delete-cv.component';
 import { AddCvComponent } from './cvTeck/add-cv/add-cv.component';
+import { ErrorComponent } from './error/error.component';
 
 const APP_ROUTING: Routes = [
   { path: 'cv', component: CvComponent, children : [
@@ -14,7 +15,9 @@ const APP_ROUTING: Routes = [
     { path: ':id', component: DetailComponent },
   ]},
   { path: '', redirectTo: 'cv', pathMatch: 'full'},
-  { path: 'color/:default', component: ColorComponent }
+  { path: 'color/:default', component: ColorComponent },
+  { path: '**', redirectTo: '404-notfound' },
+  { path: '404-notfound', component: ErrorComponent },
 ];
 
 
