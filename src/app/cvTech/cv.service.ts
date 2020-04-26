@@ -25,5 +25,12 @@ export class CvService {
     return this.personnes;
   }
 
+  getPersonneById(id: number) : Personne {
+    // console.log("param====>: ",id, this.personnes);
+    const personne = this.personnes.find(personne => {
+      return personne.id == id;
+    })
+    return personne;
+  }
 
 }

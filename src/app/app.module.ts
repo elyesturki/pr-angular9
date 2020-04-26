@@ -22,6 +22,7 @@ import {AutocompleteLibModule} from 'angular-ng-autocomplete';
 import { EmbaucheComponent } from './cvTech/embauche/embauche.component';
 import { AppRoutingModule } from './app-routing.module';
 import { HeaderComponent } from './header/header.component';
+import { DetailComponent } from './cvTech/detail/detail.component';
 
 @NgModule({
   declarations: [
@@ -42,7 +43,8 @@ import { HeaderComponent } from './header/header.component';
     DefaultImagePipe,
     FormulaireComponent,
     EmbaucheComponent,
-    HeaderComponent
+    HeaderComponent,
+    DetailComponent
   ],
   imports: [
     BrowserModule,

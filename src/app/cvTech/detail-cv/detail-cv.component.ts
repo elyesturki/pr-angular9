@@ -1,6 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Personne } from 'src/app/Model/Personne';
 import { EmbaucheService } from '../embauche.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-detail-cv',
@@ -11,17 +12,12 @@ export class DetailCvComponent implements OnInit {
 
   @Input() personne : Personne;
 
-  selectedPersonne : Personne = {
-    id: 1,
-    name: "Turki",
-    firstname: "Elyes",
-    age: 39,
-    path: "rotating_card_profile1.png",
-    cin: 1,
-    job: "Consltant technique",
-  };
+  selectedPersonne : Personne;
 
-  constructor(private embaucheService: EmbaucheService) { }
+  constructor(
+    private embaucheService: EmbaucheService,
+    private router: Router
+    ) { }
 
   ngOnInit(): void {
 
@@ -29,6 +25,11 @@ export class DetailCvComponent implements OnInit {
 
   embaucher() {
     this.embaucheService.embaucher(this.personne)
+  }
+
+  moreInfo() {
+    const link = ['cv', this.personne.id];
+    this.router.navigate(link);
   }
 
 }
