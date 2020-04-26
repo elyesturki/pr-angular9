@@ -7,7 +7,7 @@ import { ColorComponent } from './color/color.component';
 const APP_ROUTING: Routes = [
   { path: '', redirectTo: 'cv', pathMatch: 'full'},
   { path: 'cv', component: CvComponent },
-  { path: 'color', component: ColorComponent }
+  { path: 'color/:default/:secondParam', component: ColorComponent }
 ];
 
 
