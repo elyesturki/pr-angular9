@@ -4,8 +4,12 @@
 
     <!-- Login Form -->
     <form #loginFormulaire="ngForm">
-      <input type="text" email required id="email" ngModel class="fadeIn" name="email" placeholder="email">
-      <input type="password" required minlength="4" ngModel required id="password" class="fadeIn" name="login" placeholder="****">
+      <input #mailInput='ngModel' type="text" email required id="email" ngModel class="fadeIn" name="email" placeholder="email">
+      <div class="alert alert-danger" *ngIf="mailInput.invalid && mailInput.touched">Mail n'est pas valide</div>
+
+
+      <input #pwdInput='ngModel' type="password" required minlength="4" ngModel required id="password" class="fadeIn" name="login" placeholder="****">
+      <div class="alert alert-danger" *ngIf="pwdInput.invalid && pwdInput.touched">le mot de passe doit avoir 4 caracètres au minimum</div>
       <input type="submit" [disabled]="loginFormulaire.invalid" class="btn btn-success" value="se connecter" (click)="login(loginFormulaire)">
     </form>
 
