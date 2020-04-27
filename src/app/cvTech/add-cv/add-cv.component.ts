@@ -13,7 +13,7 @@ export class AddCvComponent implements OnInit {
   }
 
   addPersonne(formulaire) {
-    console.log("addPersonne(formulaire): ", formulaire.value)
+    console.log("addPersonne(formulaire): ", formulaire)
   }
 
 }
