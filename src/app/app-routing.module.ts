@@ -4,8 +4,8 @@ import { RouterModule, Routes } from '@angular/router';
 import { CvComponent } from './cvTech/cv/cv.component';
 import { ColorComponent } from './color/color.component';
 import { DetailComponent } from './cvTech/detail/detail.component';
-import { DeleteCvComponent } from './cvTeck/delete-cv/delete-cv.component';
-import { AddCvComponent } from './cvTeck/add-cv/add-cv.component';
+import { DeleteCvComponent } from './cvTech/delete-cv/delete-cv.component';
+import { AddCvComponent } from './cvTech/add-cv/add-cv.component';
 import { ErrorComponent } from './error/error.component';
 
 const APP_ROUTING: Routes = [
