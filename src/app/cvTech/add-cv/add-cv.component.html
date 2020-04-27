@@ -10,14 +10,14 @@
     <input required id="job" type="text" ngModel name="job" class="form-control">
 
     <label for="age">Age</label>
-    <input required id="age" type="number" ngModel name="age" class="form-control">
+    <input required min="0" max="170" id="age" type="number" ngModel name="age" class="form-control">
 
     <label for="cin">CIN</label>
     <input required id="cin" type="text" ngModel name="cin" class="form-control">
 
     <label for="path">Path</label>
-    <input required id="path" type="text" ngModel name="path" class="form-control">
+    <input id="path" type="text" ngModel name="path" class="form-control">
 <br>
-    <button class="btn btn-success" (click)="addPersonne(formulaire)">Envoyer</button>
+    <button class="btn btn-success" [disabled]="formulaire.invalid" (click)="addPersonne(formulaire)">Envoyer</button>
   </form>
 </div>
