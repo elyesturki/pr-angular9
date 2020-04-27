@@ -26,6 +26,7 @@ import { DetailComponent } from './cvTech/detail/detail.component';
 import { AddCvComponent } from './cvTech/add-cv/add-cv.component';
 import { DeleteCvComponent } from './cvTech/delete-cv/delete-cv.component';
 import { ErrorComponent } from './error/error.component';
+import { LoginComponent } from './login/login.component';
 
 @NgModule({
   declarations: [
@@ -50,7 +51,8 @@ import { ErrorComponent } from './error/error.component';
     DetailComponent,
     AddCvComponent,
     DeleteCvComponent,
-    ErrorComponent
+    ErrorComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
