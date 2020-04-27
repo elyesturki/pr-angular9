@@ -12,4 +12,8 @@ export class AddCvComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  addPersonne(formulaire) {
+    console.log("addPersonne(formulaire): ", formulaire.value)
+  }
+
 }
