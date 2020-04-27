@@ -10,7 +10,8 @@ import { ErrorComponent } from './error/error.component';
 import { LoginComponent } from './login/login.component';
 
 const APP_ROUTING: Routes = [
-  { path: 'cv', component: CvComponent, children : [
+  { path: 'cv', children : [
+    { path: '', component: CvComponent },
     { path: 'delete/:id', component: DeleteCvComponent },
     { path: 'add', component: AddCvComponent },
     { path: ':id', component: DetailComponent },
