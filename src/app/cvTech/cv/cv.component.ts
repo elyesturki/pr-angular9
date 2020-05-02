@@ -16,7 +16,18 @@ export class CvComponent implements OnInit {
   constructor( private premierService: PremierService, private cvService: CvService) { }
 
   ngOnInit(): void {
-    this.personnes = this.cvService.getPersonnes();
+    this.cvService.getPersonnes().subscribe({
+      next: personnes => {
+        this.personnes = personnes;
+      },
+      error: err => {
+        console.log("probleme d'accès à l'API - ", err);
+        this.personnes = this.cvService.getFakePersonnes();
+      },
+      complete: () => {
+        console.log("Chargement observable API personne terminé");
+      }
+    });
     //console.log(this.personnes)
     this.premierService.logger(this.personnes);
     this.premierService.addData('data from cv compnenent');
