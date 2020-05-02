@@ -2,5 +2,14 @@
   "db": {
     "name": "db",
     "connector": "memory"
+  },
+  "cvTechDb": {
+    "host": "localhost",
+    "port": "3306",
+    "url": "",
+    "user": "root",
+    "password": "",
+    "database": "prangular9",
+    "connector": "mysql"
   }
 }
