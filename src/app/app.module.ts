@@ -28,6 +28,8 @@ import { DeleteCvComponent } from './cvTech/delete-cv/delete-cv.component';
 import { ErrorComponent } from './error/error.component';
 import { LoginComponent } from './login/login.component';
 import { ObservableComponent } from './observable/observable.component';
+import { HttpClientModule } from '@angular/common/http';
+import { HttpComponent } from './http/http.component';
 
 @NgModule({
   declarations: [
@@ -54,14 +56,16 @@ import { ObservableComponent } from './observable/observable.component';
     DeleteCvComponent,
     ErrorComponent,
     LoginComponent,
-    ObservableComponent
+    ObservableComponent,
+    HttpComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     ReactiveFormsModule,
     AutocompleteLibModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
