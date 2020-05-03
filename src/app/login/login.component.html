@@ -8,9 +8,9 @@
       <div class="alert alert-danger" *ngIf="mailInput.invalid && mailInput.dirty">Mail n'est pas valide</div>
 
 
-      <input #pwdInput='ngModel' type="password" required minlength="4" ngModel required id="password" class="fadeIn" name="login" placeholder="****">
+      <input #pwdInput='ngModel' type="password" required minlength="4" ngModel required id="password" class="fadeIn" name="password" placeholder="****">
       <div class="alert alert-danger" *ngIf="pwdInput.invalid && pwdInput.touched">le mot de passe doit avoir 4 caracètres au minimum</div>
-      <input type="submit" [disabled]="loginFormulaire.invalid" class="btn btn-success" value="se connecter" (click)="login(loginFormulaire)">
+      <input type="submit" [disabled]="loginFormulaire.invalid" class="btn btn-success" value="se connecter" (click)="login(loginFormulaire.value)">
     </form>
 
     <!-- Remind Passowrd -->
