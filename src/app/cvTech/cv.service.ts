@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Personne } from '../Model/Personne';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
 @Injectable({
@@ -39,6 +39,11 @@ export class CvService {
   }
 
   addPersonne(personne: Personne): Observable<any> {
+    const token = localStorage.getItem('token');
+    if(token) {
+      const options = {params: new HttpParams().set('access_token', token)};
+      return this.http.post(this.linkAPI, personne, options);
+    }
     return this.http.post(this.linkAPI, personne);
   }
 

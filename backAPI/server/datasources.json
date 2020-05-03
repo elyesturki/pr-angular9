@@ -7,9 +7,10 @@
     "host": "localhost",
     "port": "3306",
     "url": "",
-    "user": "root",
-    "password": "",
     "database": "prangular9",
+    "password": "",
+    "name": "cvTechDb",
+    "user": "root",
     "connector": "mysql"
   }
 }
