@@ -42,4 +42,8 @@ export class CvService {
     return this.http.post(this.linkAPI, personne);
   }
 
+  deletePersonne(id: number) {
+    return this.http.delete(this.linkAPI + `/${id}`);
+  }
+
 }
