@@ -1,3 +1,9 @@
+<div *ngIf="errorMessage" class="alert alert-danger">
+  {{errorMessage}}
+</div>
+<div *ngIf="successMessage" class="alert alert-success">
+  {{successMessage}}
+</div>
 <div class="col-sm-6 offset-3">
   <form #formulaire="ngForm">
     <label for="name">Name</label>
