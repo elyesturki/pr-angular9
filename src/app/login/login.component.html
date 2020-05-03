@@ -5,7 +5,7 @@
     <!-- Login Form -->
     <form #loginFormulaire="ngForm">
       <input #mailInput='ngModel' type="text" email required id="email" ngModel class="fadeIn" name="email" placeholder="email">
-      <div class="alert alert-danger" *ngIf="mailInput.invalid && mailInput.touched">Mail n'est pas valide</div>
+      <div class="alert alert-danger" *ngIf="mailInput.invalid && mailInput.dirty">Mail n'est pas valide</div>
 
 
       <input #pwdInput='ngModel' type="password" required minlength="4" ngModel required id="password" class="fadeIn" name="login" placeholder="****">
