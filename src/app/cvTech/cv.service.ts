@@ -39,11 +39,12 @@ export class CvService {
   }
 
   addPersonne(personne: Personne): Observable<any> {
-    const token = localStorage.getItem('token');
-    if(token) {
-      const options = {params: new HttpParams().set('access_token', token)};
-      return this.http.post(this.linkAPI, personne, options);
-    }
+    /*--l'interceptor 'loginInterceptor' remplace toute cette partie, le token est ajouté automatiquement à la requette --*/
+    // const token = localStorage.getItem('token');
+    // if(token) {
+    //   const options = {params: new HttpParams().set('access_token', token)};
+    //   return this.http.post(this.linkAPI, personne, options);
+    // }
     return this.http.post(this.linkAPI, personne);
   }
 

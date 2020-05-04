@@ -28,8 +28,9 @@ import { DeleteCvComponent } from './cvTech/delete-cv/delete-cv.component';
 import { ErrorComponent } from './error/error.component';
 import { LoginComponent } from './login/login.component';
 import { ObservableComponent } from './observable/observable.component';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { HttpComponent } from './http/http.component';
+import { loginInterceptor } from './interceptors/login.interceptor';
 
 @NgModule({
   declarations: [
@@ -67,7 +68,9 @@ import { HttpComponent } from './http/http.component';
     AppRoutingModule,
     HttpClientModule
   ],
-  providers: [],
+  providers: [
+    { provide: HTTP_INTERCEPTORS, useClass: loginInterceptor, multi: true }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
