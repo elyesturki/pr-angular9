@@ -1,3 +1,4 @@
+import { LoginGuard } from './guard/login.guard';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
@@ -69,7 +70,8 @@ import { loginInterceptor } from './interceptors/login.interceptor';
     HttpClientModule
   ],
   providers: [
-    { provide: HTTP_INTERCEPTORS, useClass: loginInterceptor, multi: true }
+    { provide: HTTP_INTERCEPTORS, useClass: loginInterceptor, multi: true },
+    LoginGuard
   ],
   bootstrap: [AppComponent]
 })

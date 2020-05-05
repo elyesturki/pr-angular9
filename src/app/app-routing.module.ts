@@ -1,3 +1,4 @@
+import { LoginGuard } from './guard/login.guard';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule, Routes } from '@angular/router';
@@ -12,8 +13,8 @@ import { LoginComponent } from './login/login.component';
 const APP_ROUTING: Routes = [
   { path: 'cv', children : [
     { path: '', component: CvComponent },
-    { path: 'delete/:id', component: DeleteCvComponent },
-    { path: 'add', component: AddCvComponent },
+    { path: 'delete/:id', component: DeleteCvComponent, canActivate: [LoginGuard] },
+    { path: 'add', component: AddCvComponent, canActivate: [LoginGuard] },
     { path: ':id', component: DetailComponent },
   ]},
   { path: 'login', component: LoginComponent },

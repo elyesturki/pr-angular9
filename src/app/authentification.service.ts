@@ -12,4 +12,9 @@ export class AuthentificationService {
    // console.log("credentials: ",credentials)
     return this.http.post(this.linkAPILogin, credentials);
   }
+
+  logout() {
+    localStorage.removeItem('token');
+  }
+
 }
