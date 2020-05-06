@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthentificationService } from '../authentification.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-header',
@@ -8,13 +9,19 @@ import { AuthentificationService } from '../authentification.service';
 })
 export class HeaderComponent implements OnInit {
 
-  constructor( private authentificationServiver: AuthentificationService) { }
+  constructor( private authentificationServiver: AuthentificationService, private router: Router){ }
 
   ngOnInit(): void {
+    console.log("isLoggedIn: ",this.isLoggedIn)
   }
 
   logout() {
+    this.router.navigate(['/']);
     this.authentificationServiver.logout();
+  }
+
+  isLoggedIn(): boolean {
+    return this.authentificationServiver.isLoggedIn();
   }
 
 }
