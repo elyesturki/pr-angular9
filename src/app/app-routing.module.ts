@@ -9,6 +9,7 @@ import { DeleteCvComponent } from './cvTech/delete-cv/delete-cv.component';
 import { AddCvComponent } from './cvTech/add-cv/add-cv.component';
 import { ErrorComponent } from './error/error.component';
 import { LoginComponent } from './login/login.component';
+import { LogoutGuard } from './guard/logout.guard';
 
 const APP_ROUTING: Routes = [
   { path: 'cv', children : [
@@ -17,7 +18,7 @@ const APP_ROUTING: Routes = [
     { path: 'add', component: AddCvComponent, canActivate: [LoginGuard] },
     { path: ':id', component: DetailComponent },
   ]},
-  { path: 'login', component: LoginComponent },
+  { path: 'login', component: LoginComponent, canActivate: [LogoutGuard] },
   { path: '', redirectTo: 'cv', pathMatch: 'full'},
   { path: 'color/:default', component: ColorComponent },
   { path: '**', redirectTo: '404-notfound' },

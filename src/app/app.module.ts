@@ -32,6 +32,7 @@ import { ObservableComponent } from './observable/observable.component';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { HttpComponent } from './http/http.component';
 import { loginInterceptor } from './interceptors/login.interceptor';
+import { LogoutGuard } from './guard/logout.guard';
 
 @NgModule({
   declarations: [
@@ -71,7 +72,8 @@ import { loginInterceptor } from './interceptors/login.interceptor';
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: loginInterceptor, multi: true },
-    LoginGuard
+    LoginGuard,
+    LogoutGuard
   ],
   bootstrap: [AppComponent]
 })
