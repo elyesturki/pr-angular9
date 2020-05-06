@@ -9,6 +9,8 @@ import { Router } from '@angular/router';
 })
 export class HeaderComponent implements OnInit {
 
+  visibility: boolean = false;
+
   constructor( private authentificationServiver: AuthentificationService, private router: Router){ }
 
   ngOnInit(): void {
@@ -22,6 +24,10 @@ export class HeaderComponent implements OnInit {
 
   isLoggedIn(): boolean {
     return this.authentificationServiver.isLoggedIn();
+  }
+
+  showMenu() {
+    this.visibility = !this.visibility;
   }
 
 }
