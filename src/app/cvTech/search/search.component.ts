@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ElementRef, ViewChild } from '@angular/core';
 import { Personne } from 'src/app/Model/Personne';
 import { CvService } from '../cv.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-search',
@@ -9,8 +10,10 @@ import { CvService } from '../cv.service';
 })
 export class SearchComponent implements OnInit {
 
+  @ViewChild('inputSearch') inputSearch: ElementRef;
+
   searchResult: Personne[];
-  constructor( private cvService: CvService) { }
+  constructor( private cvService: CvService, private router: Router) { }
 
   ngOnInit(): void {
     this.searchResult = [];
@@ -33,7 +36,10 @@ export class SearchComponent implements OnInit {
   }
 
   selectPersonne(personne: Personne) {
-    console.log(personne);
+    this.inputSearch.nativeElement.value = "";
+    this.searchResult = [];
+    const link = ['cv', personne.id];
+    this.router.navigate(link);
   }
 
 }

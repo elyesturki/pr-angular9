@@ -4,7 +4,7 @@
   class="form-control"
   (keyup)="search(inputSearch.value)"
 >
-<ol>
+<ol *ngIf="true">
   <li
       *ngFor="let personne of searchResult"
       class="list-group-item"
