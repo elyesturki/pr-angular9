@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Personne } from 'src/app/Model/Personne';
+import { CvService } from '../cv.service';
 
 @Component({
   selector: 'app-search',
@@ -9,14 +10,26 @@ import { Personne } from 'src/app/Model/Personne';
 export class SearchComponent implements OnInit {
 
   searchResult: Personne[];
-  constructor() { }
+  constructor( private cvService: CvService) { }
 
   ngOnInit(): void {
     this.searchResult = [];
   }
 
   search(txtSearch: string): void {
-    console.log(txtSearch);
+    let name = txtSearch;
+    name = name.trim();
+    if (name.length) {
+      this.cvService.findByName(name).subscribe({
+        next: (personnes: any) => {
+          console.log("personnes trouvés:", personnes);
+          this.searchResult = personnes;
+        }
+      })
+    } else {
+      this.searchResult = [];
+    }
+
   }
 
   selectPersonne(personne: Personne) {

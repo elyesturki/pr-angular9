@@ -8,7 +8,7 @@
   <li
       *ngFor="let personne of searchResult"
       class="list-group-item"
-      (click)="selectPersonne(personne)">
+      (click)="selectPersonne(personne)"
   >
     <img width="25px" height="25px"
     src="assets/images/{{personne.path | defaultImage}}"
