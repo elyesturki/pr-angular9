@@ -8,7 +8,10 @@ export class loginInterceptor implements HttpInterceptor {
     const token: string = localStorage.getItem('token');
     if(token) {
       const cloneReq = req.clone({
-        params: new HttpParams().set('access_token', token)
+        setParams: {
+          'access_token': token
+        }
+       // params: new HttpParams().set('access_token', token)
       });
       return next.handle(cloneReq);
     } else {
