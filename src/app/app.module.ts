@@ -33,6 +33,7 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { HttpComponent } from './http/http.component';
 import { loginInterceptor } from './interceptors/login.interceptor';
 import { LogoutGuard } from './guard/logout.guard';
+import { UpdateCvComponent } from './cvTech/update-cv/update-cv.component';
 
 @NgModule({
   declarations: [
@@ -60,7 +61,8 @@ import { LogoutGuard } from './guard/logout.guard';
     ErrorComponent,
     LoginComponent,
     ObservableComponent,
-    HttpComponent
+    HttpComponent,
+    UpdateCvComponent
   ],
   imports: [
     BrowserModule,

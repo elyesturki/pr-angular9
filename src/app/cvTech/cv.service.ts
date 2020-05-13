@@ -52,4 +52,9 @@ export class CvService {
     return this.http.delete(this.linkAPI + `/${id}`);
   }
 
+  updatePersonne(personne: Personne) {
+    console.log("Info de la personne à mettre à jour: ", personne);
+    return this.http.put(this.linkAPI, personne);
+  }
+
 }

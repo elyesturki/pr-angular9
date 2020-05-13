@@ -9,6 +9,7 @@
       <div class="main">
           <h3 class="name">{{personne?.name | titlecase}} {{personne?.firstname | titlecase}}</h3>
           <p class="profession">{{personne?.job}}</p>
+          <p class="cin">CIN: {{personne?.cin}}</p>
           <div class="text-center">
              <h4 class="text-center">{{personne?.age}} years</h4>
              <p class="text-center">Web design, Adobe Photoshop, HTML5, CSS3, Corel and many others...</p>
@@ -20,6 +21,7 @@
     <div class="col-sm-12 text-center pt-5">
       <hr>
       <button class="btn btn-danger" (click)="deletePersonne()">Delete</button>
+      <button class="btn btn-primary" (click)="updatePersonne(personne.id)">Update</button>
     </div>
   </div>
 </div>

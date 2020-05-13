@@ -10,11 +10,13 @@ import { AddCvComponent } from './cvTech/add-cv/add-cv.component';
 import { ErrorComponent } from './error/error.component';
 import { LoginComponent } from './login/login.component';
 import { LogoutGuard } from './guard/logout.guard';
+import { UpdateCvComponent } from './cvTech/update-cv/update-cv.component';
 
 const APP_ROUTING: Routes = [
   { path: 'cv', children : [
     { path: '', component: CvComponent },
     { path: 'delete/:id', component: DeleteCvComponent, canActivate: [LoginGuard] },
+    { path: 'update/:id', component: UpdateCvComponent, canActivate: [LoginGuard] },
     { path: 'add', component: AddCvComponent, canActivate: [LoginGuard] },
     { path: ':id', component: DetailComponent },
   ]},
