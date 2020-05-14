@@ -1,0 +1,11 @@
+app-search {
+  position: relative;
+  height: 38px !important;
+  width: 100%
+}
+.form-search {
+  z-index: 99;
+}
+nav.navbar {
+  margin-bottom: 15px;
+}

@@ -1,10 +1,13 @@
 <input
   #inputSearch
   type="text"
-  class="form-control"
+  class="form-control input-search mr-sm-2"
   (keyup)="search(inputSearch.value)"
+  placeholder="Search"
+  aria-label="Search"
 >
-<ol *ngIf="true">
+<!-- <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search"> -->
+<ol class="list-search" *ngIf="true">
   <li
       *ngFor="let personne of searchResult"
       class="list-group-item"
