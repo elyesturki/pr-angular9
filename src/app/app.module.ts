@@ -36,6 +36,37 @@ import { LogoutGuard } from './guard/logout.guard';
 import { UpdateCvComponent } from './cvTech/update-cv/update-cv.component';
 import { SearchComponent } from './cvTech/search/search.component';
 
+/*crop resize img */
+import { CommonModule } from '@angular/common';
+import { LySliderModule } from '@alyle/ui/slider';
+import { LyIconModule } from '@alyle/ui/icon';
+import { LyDialogModule } from '@alyle/ui/dialog';
+
+import { ResizeCropImgComponent } from './resize-crop-img/resize-crop-img.component';
+import { CropperDialog } from './resize-crop-img/cropper-dialog';
+
+/** Import animations */
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+// Gestures
+import { HAMMER_GESTURE_CONFIG, HammerModule } from '@angular/platform-browser';
+
+/** Import the component modules */
+import { LyButtonModule } from '@alyle/ui/button';
+import { LyToolbarModule } from '@alyle/ui/toolbar';
+import { LyImageCropperModule } from '@alyle/ui/image-cropper';
+
+/** Import Alyle UI */
+import {
+  LyTheme2,
+  StyleRenderer,
+  LY_THEME,
+  LY_THEME_NAME,
+  LyHammerGestureConfig
+} from '@alyle/ui';
+
+/** Import themes */
+import { MinimaLight, MinimaDark } from '@alyle/ui/themes/minima';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -64,7 +95,9 @@ import { SearchComponent } from './cvTech/search/search.component';
     ObservableComponent,
     HttpComponent,
     UpdateCvComponent,
-    SearchComponent
+    SearchComponent,
+    ResizeCropImgComponent,
+    CropperDialog
   ],
   imports: [
     BrowserModule,
@@ -72,13 +105,29 @@ import { SearchComponent } from './cvTech/search/search.component';
     ReactiveFormsModule,
     AutocompleteLibModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    BrowserAnimationsModule,
+    HammerModule,
+    LyButtonModule,
+    LyToolbarModule,
+    LyImageCropperModule,
+    LyIconModule,
+    LySliderModule,
+    LyDialogModule,
+    CommonModule
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: loginInterceptor, multi: true },
     LoginGuard,
-    LogoutGuard
+    LogoutGuard,
+    [ LyTheme2 ],
+    [ StyleRenderer ],
+    { provide: LY_THEME_NAME, useValue: 'minima-light' },
+    { provide: LY_THEME, useClass: MinimaLight, multi: true }, // name: `minima-light`
+    { provide: LY_THEME, useClass: MinimaDark, multi: true }, // name: `minima-dark`
+    { provide: HAMMER_GESTURE_CONFIG, useClass: LyHammerGestureConfig }
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  exports: [ResizeCropImgComponent]
 })
 export class AppModule { }
