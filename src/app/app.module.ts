@@ -35,35 +35,9 @@ import { loginInterceptor } from './interceptors/login.interceptor';
 import { LogoutGuard } from './guard/logout.guard';
 import { UpdateCvComponent } from './cvTech/update-cv/update-cv.component';
 import { SearchComponent } from './cvTech/search/search.component';
-import { CropperDialogComponent } from './cropperModule/cropper-dialog/cropper-dialog.component';
-import { CropperWithDialogComponent } from './cropperModule/cropper-with-dialog/cropper-with-dialog.component';
 
 /*cropper module*/
-import { CropperWithDialogModule } from './cropperModule/cropper-with-dialog.module'
-/** Import animations */
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-// Gestures
-import {
-  HAMMER_GESTURE_CONFIG,
-  HammerModule
-} from '@angular/platform-browser';
-
-/** Import Alyle UI */
-import {
-  LyTheme2,
-  StyleRenderer,
-  LY_THEME,
-  LY_THEME_NAME,
-  LyHammerGestureConfig
-} from '@alyle/ui';
-
-/** Import the component modules */
-import { LyButtonModule } from '@alyle/ui/button';
-import { LyToolbarModule } from '@alyle/ui/toolbar';
-import { LyImageCropperModule } from '@alyle/ui/image-cropper';
-/** Import themes */
-import { MinimaLight, MinimaDark } from '@alyle/ui/themes/minima';
-/*end crop module */
+import { CropperImageModule } from './cropperModule/cropper-image.module';
 
 @NgModule({
   declarations: [
@@ -93,9 +67,7 @@ import { MinimaLight, MinimaDark } from '@alyle/ui/themes/minima';
     ObservableComponent,
     HttpComponent,
     UpdateCvComponent,
-    SearchComponent,
-    CropperDialogComponent,
-    CropperWithDialogComponent
+    SearchComponent
   ],
   imports: [
     BrowserModule,
@@ -104,23 +76,12 @@ import { MinimaLight, MinimaDark } from '@alyle/ui/themes/minima';
     AutocompleteLibModule,
     AppRoutingModule,
     HttpClientModule,
-    CropperWithDialogModule,
-    BrowserAnimationsModule,
-    LyButtonModule,
-    LyToolbarModule,
-    LyImageCropperModule,
-    HammerModule
+    CropperImageModule
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: loginInterceptor, multi: true },
     LoginGuard,
-    LogoutGuard,
-    [ LyTheme2 ],
-    [ StyleRenderer ],
-    { provide: LY_THEME_NAME, useValue: 'minima-light' },
-    { provide: LY_THEME, useClass: MinimaLight, multi: true }, // name: `minima-light`
-    { provide: LY_THEME, useClass: MinimaDark, multi: true }, // name: `minima-dark`
-    { provide: HAMMER_GESTURE_CONFIG, useClass: LyHammerGestureConfig }
+    LogoutGuard
   ],
   bootstrap: [AppComponent]
 })
