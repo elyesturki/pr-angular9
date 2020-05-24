@@ -35,6 +35,11 @@ import { loginInterceptor } from './interceptors/login.interceptor';
 import { LogoutGuard } from './guard/logout.guard';
 import { UpdateCvComponent } from './cvTech/update-cv/update-cv.component';
 import { SearchComponent } from './cvTech/search/search.component';
+import { CropperDialogComponent } from './cropperModule/cropper-dialog/cropper-dialog.component';
+import { CropperWithDialogComponent } from './cropperModule/cropper-with-dialog/cropper-with-dialog.component';
+
+/*cropper module*/
+import { CropperWithDialogModule } from './cropperModule/cropper-with-dialog.module'
 
 @NgModule({
   declarations: [
@@ -64,7 +69,9 @@ import { SearchComponent } from './cvTech/search/search.component';
     ObservableComponent,
     HttpComponent,
     UpdateCvComponent,
-    SearchComponent
+    SearchComponent,
+    CropperDialogComponent,
+    CropperWithDialogComponent
   ],
   imports: [
     BrowserModule,
@@ -72,7 +79,8 @@ import { SearchComponent } from './cvTech/search/search.component';
     ReactiveFormsModule,
     AutocompleteLibModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    CropperWithDialogModule
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: loginInterceptor, multi: true },
