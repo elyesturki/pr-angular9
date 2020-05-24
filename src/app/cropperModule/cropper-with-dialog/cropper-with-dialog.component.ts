@@ -7,6 +7,7 @@ import { CropperDialogComponent } from '../cropper-dialog/cropper-dialog.compone
 @Component({
   selector: 'aui-cropper-with-dialog',
   templateUrl: './cropper-with-dialog.component.html',
+  styleUrls: ['./cropper-with-dialog.component.css'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class CropperWithDialogComponent {

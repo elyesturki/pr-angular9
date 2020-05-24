@@ -21,9 +21,11 @@
     <label for="cin">CIN</label>
     <input required id="cin" type="text" ngModel name="cin" class="form-control">
 
-    <label for="path">Path</label>
-    <input id="path" type="text" ngModel name="path" class="form-control">
-<br>
+    <!-- <label for="path">Path</label>
+    <input id="path" type="text" ngModel name="path" class="form-control"> -->
+    <br>
+    <aui-cropper-with-dialog></aui-cropper-with-dialog>
+<br><br>
     <button class="btn btn-success" [disabled]="formulaire.invalid" (click)="addPersonne(formulaire)">Envoyer</button>
   </form>
 </div>
