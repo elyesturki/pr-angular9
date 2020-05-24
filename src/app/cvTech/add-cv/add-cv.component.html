@@ -21,9 +21,19 @@
     <label for="cin">CIN</label>
     <input required id="cin" type="text" ngModel name="cin" class="form-control">
 
-    <label for="path">Path</label>
-    <input id="path" type="text" ngModel name="path" class="form-control">
-<br>
+    <!-- <label for="path">Path</label>
+     <input id="path" type="text" ngModel name="path" class="form-control"> -->
+     <br>
+    <input #_fileInput type="file" (change)="openCropperDialog($event)" accept="image/*" hidden>
+
+    <button ly-button color="" (click)="_fileInput.click()" class="btnSelectImage">
+      <ly-icon [mf]="1">add_a_photo</ly-icon>
+      <span>Select Photo</span>
+    </button>
+
+    <div *ngIf="cropped"><img [src]="cropped"></div>
+    <br>
+    <br>
     <button class="btn btn-success" [disabled]="formulaire.invalid" (click)="addPersonne(formulaire)">Envoyer</button>
   </form>
 </div>

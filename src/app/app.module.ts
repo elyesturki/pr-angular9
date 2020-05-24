@@ -36,6 +36,38 @@ import { LogoutGuard } from './guard/logout.guard';
 import { UpdateCvComponent } from './cvTech/update-cv/update-cv.component';
 import { SearchComponent } from './cvTech/search/search.component';
 
+/*cropper image */
+import { CommonModule } from '@angular/common';
+import { LyImageCropperModule } from '@alyle/ui/image-cropper';
+import { LySliderModule } from '@alyle/ui/slider';
+import { LyButtonModule } from '@alyle/ui/button';
+import { LyIconModule } from '@alyle/ui/icon';
+import { LyDialogModule } from '@alyle/ui/dialog';
+import { CropperDialogComponent } from './cvTech/cropper-dialog/cropper-dialog.component';
+
+/** Import animations */
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+// Gestures
+import {
+  HAMMER_GESTURE_CONFIG,
+  HammerModule
+} from '@angular/platform-browser';
+
+/** Import Alyle UI */
+import {
+  LyTheme2,
+  StyleRenderer,
+  LY_THEME,
+  LY_THEME_NAME,
+  LyHammerGestureConfig
+} from '@alyle/ui';
+/** Import the component modules */
+import { LyToolbarModule } from '@alyle/ui/toolbar';
+/** Import themes */
+import { MinimaLight, MinimaDark } from '@alyle/ui/themes/minima';
+
+/**End crop image*/
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -64,7 +96,8 @@ import { SearchComponent } from './cvTech/search/search.component';
     ObservableComponent,
     HttpComponent,
     UpdateCvComponent,
-    SearchComponent
+    SearchComponent,
+    CropperDialogComponent
   ],
   imports: [
     BrowserModule,
@@ -72,12 +105,29 @@ import { SearchComponent } from './cvTech/search/search.component';
     ReactiveFormsModule,
     AutocompleteLibModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    CommonModule,
+    LyImageCropperModule,
+    LySliderModule,
+    LyButtonModule,
+    LyIconModule,
+    LyDialogModule,
+    LyToolbarModule,
+    BrowserAnimationsModule,
+    HammerModule
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: loginInterceptor, multi: true },
     LoginGuard,
-    LogoutGuard
+    LogoutGuard,
+    [ LyTheme2 ],
+    [ StyleRenderer ],
+    // Theme that will be applied to this module
+    { provide: LY_THEME_NAME, useValue: 'minima-light' },
+    { provide: LY_THEME, useClass: MinimaLight, multi: true }, // name: `minima-light`
+    { provide: LY_THEME, useClass: MinimaDark, multi: true }, // name: `minima-dark`
+    // Gestures
+    { provide: HAMMER_GESTURE_CONFIG, useClass: LyHammerGestureConfig }
   ],
   bootstrap: [AppComponent]
 })
