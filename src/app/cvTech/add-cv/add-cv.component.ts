@@ -9,6 +9,8 @@ import { Router } from '@angular/router';
 })
 export class AddCvComponent implements OnInit {
 
+  pathURL: string = '';
+
   errorMessage = "";
   successMessage = "";
   constructor( private cvService: CvService, private router: Router) { }
@@ -17,6 +19,7 @@ export class AddCvComponent implements OnInit {
   }
 
   addPersonne(formulaire) {
+    formulaire.value.path = this.pathURL;
     this.cvService.addPersonne(formulaire.value).subscribe({
       next: (reponse) => {
         this.successMessage = "Personne ajoutée avec Succès";
@@ -31,6 +34,10 @@ export class AddCvComponent implements OnInit {
       },
       complete: () => console.log("add personne complete")
     })
+  }
+
+  getPath(url: string):void {
+    this.pathURL = url
   }
 
 }
