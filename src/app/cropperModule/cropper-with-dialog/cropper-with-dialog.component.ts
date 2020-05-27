@@ -1,4 +1,4 @@
-import { Component, ChangeDetectionStrategy, ChangeDetectorRef, Output, EventEmitter } from '@angular/core';
+import { Component, ChangeDetectionStrategy, ChangeDetectorRef, Output, EventEmitter, Input } from '@angular/core';
 import { LyDialog } from '@alyle/ui/dialog';
 import { ImgCropperEvent } from '@alyle/ui/image-cropper';
 
@@ -12,12 +12,19 @@ import { CropperDialogComponent } from '../cropper-dialog/cropper-dialog.compone
 })
 export class CropperWithDialogComponent {
   @Output() imgCroppedEmit: EventEmitter<string> = new EventEmitter()
+  @Input() dataUrlImg : string;
 
   cropped?: string;
   constructor(
     private _dialog: LyDialog,
     private _cd: ChangeDetectorRef
   ) { }
+
+  ngOnInit(): void {
+    if(this.dataUrlImg) {
+      this.cropped = this.dataUrlImg;
+    }
+  }
 
   openCropperDialog(event: Event) {
     this.cropped = null!;
