@@ -7,7 +7,7 @@ export class DefaultImagePipe implements PipeTransform {
 
   transform(value: string, args?: string): string {
     if (!value) {
-      return 'default-img.jpg';
+      return 'assets/images/default-img.jpg';
     }
     return value;
   }

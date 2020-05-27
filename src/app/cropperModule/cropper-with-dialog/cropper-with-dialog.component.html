@@ -1,0 +1,9 @@
+
+<input #_fileInput type="file" (change)="openCropperDialog($event)" accept="image/*" hidden>
+
+<button ly-button color="default" (click)="_fileInput.click()">
+  <ly-icon [mf]="1">add_a_photo</ly-icon>
+  <span>Choisir une photo</span>
+</button>
+
+<div *ngIf="cropped"><img [src]="cropped"></div>

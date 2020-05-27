@@ -14,7 +14,7 @@
       (click)="selectPersonne(personne)"
   >
     <img width="25px" height="25px"
-    src="assets/images/{{personne.path | defaultImage}}"
+    src="{{personne.path | defaultImage}}"
     alt="{{personne.firstname}}"
     >
     {{personne.name}} {{personne.firstname}}

@@ -1,5 +1,5 @@
 import { ActivatedRoute, Router } from '@angular/router';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { Personne } from 'src/app/Model/Personne';
 import { CvService } from '../cv.service';
 
@@ -9,6 +9,9 @@ import { CvService } from '../cv.service';
   styleUrls: ['./update-cv.component.css']
 })
 export class UpdateCvComponent implements OnInit {
+
+  pathImg: string = '';
+  pathURL: string = '';
 
   personne: Personne = null;
   constructor( private activatedRoute: ActivatedRoute, private cvService: CvService, private router: Router) { }
@@ -20,6 +23,7 @@ export class UpdateCvComponent implements OnInit {
         this.cvService.getPersonneById(params.id).subscribe({
           next: (personne) => {
             this.personne = personne;
+            this.pathImg = personne.path;
           }
         })
       }
@@ -27,6 +31,7 @@ export class UpdateCvComponent implements OnInit {
   }
 
   updatePersonne() {
+    this.personne.path = this.pathURL || this.pathImg;
     this.cvService.updatePersonne(this.personne).subscribe({
       next: (reponse) => {
         const link = ['cv'];
@@ -38,5 +43,14 @@ export class UpdateCvComponent implements OnInit {
 
     );
   }
+
+  getPath(url: string):void {
+    this.pathURL = url
+  }
+
+  deletePhoto() {
+    this.pathImg = '';
+  }
+
 
 }
