@@ -31,7 +31,7 @@ export class UpdateCvComponent implements OnInit {
   }
 
   updatePersonne() {
-    this.personne.path = this.pathURL;
+    this.personne.path = this.pathURL || this.pathImg;
     this.cvService.updatePersonne(this.personne).subscribe({
       next: (reponse) => {
         const link = ['cv'];
@@ -46,6 +46,10 @@ export class UpdateCvComponent implements OnInit {
 
   getPath(url: string):void {
     this.pathURL = url
+  }
+
+  deletePhoto() {
+    this.pathImg = '';
   }
 
 

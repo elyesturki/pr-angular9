@@ -19,6 +19,7 @@
     <input id="path" type="text" [(ngModel)]="personne.path" name="path" class="form-control"> -->
     <br>
     <aui-cropper-with-dialog (imgCroppedEmit)="getPath($event)" [dataUrlImg]="pathImg"></aui-cropper-with-dialog>
+    <a href="javascript:void(0);" *ngIf='pathImg' (click)="deletePhoto()" class="text-danger btn-delete"><i class="fa fa-trash" aria-hidden="true"></i> Delete </a>
 <br>
 <br>
     <button class="btn btn-success" [disabled]="formulaire.invalid" (click)="updatePersonne()">Envoyer</button>

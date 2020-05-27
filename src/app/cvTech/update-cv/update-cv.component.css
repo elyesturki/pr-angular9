@@ -1,0 +1,11 @@
+.btn-delete i {
+  font-size: 20px;
+}
+.btn-delete {
+  position: relative;
+  top: 5px
+}
+.btn-delete:hover {
+  text-decoration: none;
+
+}
